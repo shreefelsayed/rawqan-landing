@@ -7,14 +7,20 @@ Static site — no build step. Just host the folder (or open `index.html`).
 
 ## Files
 ```
-index.html          English page — markup + SEO meta + JSON-LD structured data
-ar/index.html       Arabic (RTL) page — lang="ar" dir="rtl", translated copy + Arabic JSON-LD
-styles.css          Design system (brand green #019B1A / gold #FEBA22) + RTL/Arabic rules
-script.js           Mobile nav, scroll reveals, FAQ accordion (progressive enhancement)
-site.webmanifest    PWA manifest
-robots.txt          Crawl + sitemap pointer
-sitemap.xml         Sitemap with hreflang (en / ar / x-default)
-assets/             Favicons, logos, social image (generated from the real app assets)
+index.html              English home — markup + SEO meta + JSON-LD
+ar/index.html           Arabic (RTL) home
+privacy/                Privacy Policy (EN)
+ar/privacy/             سياسة الخصوصية
+terms/                  Terms of Service (EN)
+ar/terms/               الشروط والأحكام
+delete-account/         Account deletion page for Google Play (EN)
+ar/delete-account/      صفحة حذف الحساب
+styles.css              Design system + legal page styles + RTL
+script.js               Mobile nav, scroll reveals, FAQ accordion
+site.webmanifest        PWA manifest
+robots.txt              Crawl + sitemap pointer
+sitemap.xml             Sitemap with hreflang (en / ar / x-default)
+assets/                 Favicons, logos, social image
 ```
 
 ## Languages
@@ -35,16 +41,15 @@ assets/             Favicons, logos, social image (generated from the real app a
   - Shoppers: `com.rwaqan.customer`
   - Sellers: `com.rwaqan.seller`
 
-## ⚠️ Before going live — replace these placeholders
-Search the project for `data-placeholder` and the domain, then update:
+## Google Play — account deletion URL
+Use: `https://rwaqan.com/delete-account/` (Arabic: `/ar/delete-account/`).
 
+## ⚠️ Before going live — replace these placeholders
 1. **Domain** — all `https://rwaqan.com/` references (canonical, OG, hreflang, sitemap, robots,
-   JSON-LD). Swap for the production domain.
-2. **App Store (iOS) link** — currently points to an App Store *search* for "Rwaqan"
-   (`data-placeholder="ios"`). Replace with the real App Store URL once the listing is live, e.g.
-   `https://apps.apple.com/app/idXXXXXXXXXX`. (If iOS isn't published yet, consider hiding the badge.)
-3. **Footer links** (`data-placeholder="legal"` / `"contact"`) — Privacy Policy, Terms, Contact.
-4. **Social profiles** — none were in the source; add them to the footer if they exist.
+   JSON-LD). Swap for the production domain if different.
+2. **Support email** — pages currently use the app contact email
+   (`khazeen.elbait.alex@gmail.com`). Swap for a branded address if you have one.
+3. **Social profiles** — add them to the footer if they exist.
 
 ## SEO notes
 - Unique `<title>` + meta description, canonical, robots directives.
