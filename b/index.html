@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#019B1A" />
+<title>Open store on Rwaqan · افتح المتجر في رواقان</title>
+<meta name="description" content="Open this store in the Rwaqan customer app — browse products from local stores and brands across Egypt. افتح هذا المتجر في تطبيق رواقان." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://rawqan-landing.vercel.app/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rwaqan" />
+<meta property="og:title" content="Open store on Rwaqan · افتح المتجر في رواقان" />
+<meta property="og:description" content="Browse this store in the Rwaqan app. Available on the App Store and Google Play." />
+<meta property="og:image" content="https://rawqan-landing.vercel.app/assets/og-image.jpg" />
+
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Cairo:wght@700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="store.css" />
+</head>
+<body class="store-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="../" aria-label="Rwaqan home">
+      <img src="../assets/logo-wordmark.png" alt="Rwaqan" class="nav__logo" width="150" height="40" />
+    </a>
+    <div class="nav__actions">
+      <button type="button" class="lang-pill" id="langToggle" aria-label="Switch language"><b>EN</b> · <span>عربي</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="store-main">
+  <section class="store-hero">
+    <div class="container store-hero__inner">
+      <div class="store-card" id="storeCard">
+        <div class="store-card__cover" id="storeCover" aria-hidden="true"></div>
+        <div class="store-card__body">
+          <span class="eyebrow" data-i18n="eyebrow">Store on Rwaqan</span>
+          <h1 id="storeName" data-i18n="defaultTitle">Open this store in the app</h1>
+          <p class="store-card__sub" id="storeSub" data-i18n="subtitle">
+            Get the Rwaqan customer app to browse products, order, and track delivery.
+          </p>
+          <p class="store-card__meta" id="storeMeta" hidden></p>
+          <p class="store-card__meta" id="storeCopiedHint" hidden></p>
+
+          <div class="store-actions">
+            <a class="btn btn--primary" id="openAppBtn" href="#" data-i18n="openApp">Open in Rwaqan</a>
+            <div class="store-badges" role="group" aria-label="Download Rwaqan">
+              <a class="store-badge"
+                 href="https://play.google.com/store/apps/details?id=com.rwaqan.customer"
+                 rel="noopener"
+                 data-i18n-aria="playAria"
+                 aria-label="Get Rwaqan on Google Play">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.7l11.2 10.1L3.6 22C2.7 21.5 2 20.4 2 19.1V4.9c0-1.3.7-2.4 1.6-3.2zM15.6 12.6l2.7-2.4 3.3 1.9c.9.5.9 1.9 0 2.4l-3.3 1.9-2.7-2.4zM4.8 1l10 9-2.7 2.4L3.6 2.7C3.9 2.2 4.3 1.5 4.8 1zm7.3 12.6l2.7 2.4-10 9c-.5-.5-.9-1.2-1.2-1.7l8.5-9.7z"/></svg>
+                <span><small data-i18n="getItOn">Get it on</small><strong>Google Play</strong></span>
+              </a>
+              <a class="store-badge"
+                 href="https://apps.apple.com/eg/app/rwaqan/id6739463193"
+                 rel="noopener"
+                 data-i18n-aria="iosAria"
+                 aria-label="Download Rwaqan on the App Store">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.7 0-1.7-.7-2.8-.7-1.4 0-2.8.9-3.5 2.2-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2 .8-1.2 1.1-2.3 1.1-2.4-.1 0-2.2-.8-2.2-3.8zM14.3 6.5c.6-.7 1-1.7.9-2.7-0.9.1-1.9.6-2.5 1.3-.6.6-1.1 1.6-1 2.6 1 .1 1.9-.5 2.6-1.2z"/></svg>
+                <span><small data-i18n="downloadOn">Download on the</small><strong>App Store</strong></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="store-footnote">
+        <a href="../" data-i18n="aboutLink">What is Rwaqan?</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<script src="store.js"></script>
+</body>
+</html>

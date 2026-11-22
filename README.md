@@ -9,6 +9,9 @@ Static site — no build step. Just host the folder (or open `index.html`).
 ```
 index.html              English home — markup + SEO meta + JSON-LD
 ar/index.html           Arabic (RTL) home
+b/                      Merchant store interstitial (`/b/{id}`)
+.well-known/            Apple AASA + Android Digital Asset Links
+vercel.json             Rewrites for `/b/:id` + well-known content types
 privacy/                Privacy Policy (EN)
 ar/privacy/             سياسة الخصوصية
 terms/                  Terms of Service (EN)
@@ -22,6 +25,34 @@ robots.txt              Crawl + sitemap pointer
 sitemap.xml             Sitemap with hreflang (en / ar / x-default)
 assets/                 Favicons, logos, social image
 ```
+
+## Merchant QR deep links (M1)
+- **Link contract:** `https://rawqan-landing.vercel.app/b/{id}`
+  - Optional preview query (from Provider share): `?n={name}` and/or `?c={coverUrl}`
+  - QR payload is the HTTPS URL only (no Firebase Dynamic Links).
+- **Customer store URLs used on the interstitial:**
+  - Google Play: `https://play.google.com/store/apps/details?id=com.rwaqan.customer`
+  - App Store: `https://apps.apple.com/eg/app/rwaqan/id6739463193`
+- **Association files** (must be live on the same host):
+  - `/.well-known/apple-app-site-association` — team `7U37S34SQ4`, bundle `com.armjld.rwqanCustomer`, paths `/b/*`
+  - `/.well-known/assetlinks.json` — package `com.rwaqan.customer`
+- **SHA-256 fingerprint placeholder (blocks Android App Links until set):**
+  `.well-known/assetlinks.json` still contains `REPLACE_WITH_PLAY_APP_SIGNING_SHA256`.
+  Do **not** invent a fingerprint. Replace it with the real value from:
+  1. [Play Console](https://play.google.com/console) → app `com.rwaqan.customer`
+  2. **App integrity** → **App signing** → **App signing key certificate** → SHA-256
+  3. Paste colon-separated or continuous hex as Play shows it (Digital Asset Links accepts both)
+  4. Redeploy Landing (`vercel --prod` from this folder)
+  5. Verify: `https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://rawqan-landing.vercel.app&relation=delegate_permission/common.handle_all_urls`
+  Optional: also add your **upload key** SHA-256 for local/debug APKs.
+  Until this is set, Android will open the browser interstitial instead of the app; iOS AASA is unaffected.
+- **M1b deferred handoff:** the interstitial copies `https://rawqan-landing.vercel.app/b/{id}` to
+  the clipboard on load / store-badge tap, and Play badges include
+  `referrer=utm_source=qr&utm_medium=store&utm_content={id}`. The Customer app consumes clipboard
+  + Install Referrer once after splash when no live App Link arrived.
+- Store user docs are not publicly readable in Firestore; the interstitial shows a branded
+  fallback and uses optional `n` / `c` query params when the Provider app includes them.
+  Without `n`/`c`, copy explains the storefront and still shows the store id.
 
 ## Languages
 - English at `/` and Arabic at `/ar/`, cross-linked with the header language pill and

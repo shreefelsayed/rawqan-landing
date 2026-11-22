@@ -1,0 +1,42 @@
+/* Merchant store interstitial — matches landing brand system */
+.store-page{min-height:100vh;background:
+  radial-gradient(900px 500px at 88% -5%, rgba(1,155,26,.09), transparent 60%),
+  radial-gradient(700px 420px at 2% 10%, rgba(254,186,34,.12), transparent 55%),
+  var(--bg-soft)}
+.store-main{padding:clamp(36px,6vw,72px) 0 clamp(56px,8vw,96px)}
+.store-hero__inner{max-width:720px;margin:0 auto}
+.store-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow)
+}
+.store-card__cover{
+  height:140px;background:
+    linear-gradient(135deg, var(--green-800), var(--green) 55%, #06b524);
+  position:relative
+}
+.store-card__cover.has-image{
+  background-size:cover;background-position:center
+}
+.store-card__cover::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(20,36,31,.35))
+}
+.store-card__body{padding:clamp(24px,4vw,36px)}
+.store-card h1{font-size:clamp(1.7rem,3.5vw,2.35rem);margin:14px 0 0}
+.store-card__sub{color:var(--ink-2);margin-top:14px;max-width:42ch;font-size:1.05rem}
+.store-card__meta{margin-top:10px;font-size:14px;color:var(--muted)}
+.store-actions{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.store-actions .btn{min-width:min(100%,280px)}
+.store-footnote{margin-top:22px;text-align:center;font-size:14.5px;color:var(--muted)}
+.store-footnote a{color:var(--green);font-weight:600}
+.store-footnote a:hover{color:var(--green-700)}
+.store-card.is-missing h1{color:var(--ink)}
+.store-card.is-missing .store-card__cover{
+  background:linear-gradient(135deg,#44564f,#6d7a74)
+}
+@media (max-width:560px){
+  .store-actions .store-badges{width:100%}
+  .store-actions .store-badge{flex:1}
+}
+html[lang="ar"] .store-card h1,
+html[lang="ar"] .store-actions .btn{font-family:"Cairo","Plus Jakarta Sans",sans-serif}
